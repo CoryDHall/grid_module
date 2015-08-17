@@ -83,10 +83,3 @@ module Grid
   attr_reader :grid
 
 end
-
-# class Grid
-#   include Grid
-#   def initialize(rows, columns, default_cell = nil)
-#     @grid = Array.new(rows) { Array.new(columns) { default_cell } }
-#   end
-# end
