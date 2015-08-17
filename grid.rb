@@ -66,10 +66,12 @@ module Grid
   end
 
   def [](row, col)
+    raise BoundaryError.new_OOB([row, col]) unless in_bounds?(row, col)
     grid[row][col]
   end
 
   def []=(row, col, value)
+    raise BoundaryError.new_OOB([row, col]) unless in_bounds?(row, col)
     grid[row][col] = value
   end
 
@@ -78,8 +80,18 @@ module Grid
     @grid = Array.new(num_rows) { Array.new(num_columns) { def_cell } }
   end
 
+  def in_bounds?(row, col)
+    row.abs < grid.length && col.abs < grid.length
+  end
+
   private
 
-  attr_reader :grid
+    attr_reader :grid
 
+end
+
+class BoundaryError < RangeError
+  def self.new_OOB(pos)
+    BoundaryError.new("[#{pos[0]}, #{pos[1]}] is not inside the grid")
+  end
 end
