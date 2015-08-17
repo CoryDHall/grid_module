@@ -84,14 +84,14 @@ module Grid
     row.abs < grid.length && col.abs < grid.length
   end
 
+  class BoundaryError < RangeError
+    def self.new_OOB(pos)
+      BoundaryError.new("[#{pos[0]}, #{pos[1]}] is not inside the grid")
+    end
+  end
+
   private
 
     attr_reader :grid
 
-end
-
-class BoundaryError < RangeError
-  def self.new_OOB(pos)
-    BoundaryError.new("[#{pos[0]}, #{pos[1]}] is not inside the grid")
-  end
 end
