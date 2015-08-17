@@ -1,6 +1,6 @@
 # Module for common 2D array operations
 
-module GRID
+module Grid
   def cells_each(&prc)
     grid.each_with_index do |row, row_idx|
       row.each_with_index do |cell, col_idx|
@@ -84,9 +84,9 @@ module GRID
 
 end
 
-class Grid
-  include GRID
-  def initialize(rows, columns, default_cell = nil)
-    @grid = Array.new(rows) { Array.new(columns) { default_cell } }
-  end
-end
+# class Grid
+#   include Grid
+#   def initialize(rows, columns, default_cell = nil)
+#     @grid = Array.new(rows) { Array.new(columns) { default_cell } }
+#   end
+# end
