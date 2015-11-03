@@ -2,16 +2,30 @@ require_relative "../lib/grid.rb"
 
 class GridTest
   include Grid
+  attr_reader :grid
 end
 
 RSpec.describe GridTest do
-  context "#[]"
+  context "#[]" do
+    it "accepts coordinates"
+    it "returns the value at the coordinates"
+    it "raises an error for invalid coordinates"
+  end
 
-  context "#[]="
+  context "#[]=" do
+    it "accepts coordinates"
+    it "sets the value at the coordinates"
+    it "raises an error for invalid coordinates"
+  end
 
-  context "#=="
+  context "#==" do
+    it "checks size"
+    it "checks content equivolence"
+  end
 
-  context "#==="
+  context "#===" do
+    it "checks object equivolence"
+  end
 
   context "#all?"
 
