@@ -75,7 +75,7 @@ module Grid
     grid[row][col] = value
   end
 
-  def new_grid(num_rows, num_colums = nil, def_cell = nil)
+  def new_grid(num_rows, num_columns = nil, def_cell = nil)
     num_columns ||= num_rows
     @grid = Array.new(num_rows) { Array.new(num_columns) { def_cell } }
   end

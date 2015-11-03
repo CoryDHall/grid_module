@@ -30,11 +30,27 @@ RSpec.describe GridTest do
   context "#map"
 
   context "#new_grid" do
-    it "creates a 'grid' instance variable"
-    it "accepts a size argument"
-    it "accepts dimensions as arguments"
-    it "accepts a default value"
-
+    grid_test = GridTest.new
+    it "creates a 'grid' instance variable" do
+      grid_test.new_grid(1)
+      expect(grid_test).to respond_to(:grid)
+      expect(grid_test.grid).to be_an_instance_of(Array)
+    end
+    it "accepts a size argument" do
+      grid_test.new_grid(2)
+      expect(grid_test.grid.length).to be(2)
+      expect(grid_test.grid.last.length).to be(2)
+    end
+    it "accepts dimensions as arguments" do
+      grid_test.new_grid(3, 4)
+      expect(grid_test.grid.length).to be(3)
+      expect(grid_test.grid.last.length).to be(4)
+    end
+    it "accepts a default value" do
+      grid_test.new_grid(5, 5, true)
+      expect(grid_test.grid.first.first).to be(true)
+      expect(grid_test.grid.last.last).to be(true)
+    end
   end
 
   context "#none?"
