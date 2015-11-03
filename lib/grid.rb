@@ -81,7 +81,13 @@ module Grid
   end
 
   def in_bounds?(row, col)
-    row.abs < grid.length && col.abs < grid.length
+    row.abs < grid.length && col.abs < grid.last.length
+  end
+
+  def slice(start_coord, end_coord = nil)
+    end_coord ||= [grid.length, grid.last.length]
+    row_slice = grid.slice(start_coord[0], end_coord[0])
+    row_slice.map { |col| col.slice(start_coord[1], end_coord[1]) }
   end
 
   class BoundaryError < RangeError

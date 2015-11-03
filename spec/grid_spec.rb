@@ -57,6 +57,26 @@ RSpec.describe GridTest do
 
   context "#select"
 
-  context "#slice"
+  context "#size"
+
+  context "#slice" do
+    grid_test = GridTest.new
+    grid_test.new_grid(5, 5, true)
+    it "accepts one coordinate" do
+      slice = grid_test.slice([3,2])
+      expect(slice.length).to be(2)
+      expect(slice.first.length).to be(3)
+    end
+    it "accepts two coordinates" do
+      slice = grid_test.slice([1,1],[3,2])
+      expect(slice.length).to be(3)
+      expect(slice.first.length).to be(2)
+    end
+    it "returns a subset of the grid" do
+      slice = grid_test.slice([1,1],[3,2])
+      check = Array.new(3) { Array.new(2) { true } }
+      expect(slice).to match(check)
+    end
+  end
 
 end
