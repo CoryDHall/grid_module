@@ -16,18 +16,18 @@ After working on so many grid based games, it became apparent that I was violati
 *   `#[]=(row, col, value)` accepts an ordered pair and a value and sets the object at `[row][col]` to value
 *   `#in_bounds?(row, col)` checks an ordered pair to see if the provided indices are valid coordinates in the grid
 *   `#dup_grid` duplicates the grid at both levels, but not the objects within the grid
-*   `#cells_each {}` accepts a block as an argument, the block can reference each individual cell or the individual cell and its index > Note: the index used in the iterative methods is an ordered pair
+*   `#each {}` accepts a block as an argument, the block can reference each individual cell or the individual cell and its index > Note: the index used in the iterative methods is an ordered pair
 
-*   `#cells_map {}` matches the functionality of Array#map 2-dimensionally
+*   `#map {}` matches the functionality of Array#map 2-dimensionally
 
 *   The same goes for:
 
-    *   `#cells_select`
-    *   `#cells_index_where`
-    *   `#cells_all?`
-    *   `#cells_none?`
-    *   `#cells_any?`
-    *   `#cells_inject?(accum = first_elem)`
+    *   `#select`
+    *   `#index_where`
+    *   `#all?`
+    *   `#none?`
+    *   `#any?`
+    *   `#inject?(accum = first_elem)`
 
 ### Things to add in future versions:
 
